@@ -4,9 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { ContactForm } from "@/components/contact-form";
 import { HomeSearch } from "@/components/home-search";
-import products from "@/data/products.json";
-
-const featuredHomes = products.filter((product) => product.isFeatured).slice(0, 3);
+import { FeaturedHomes } from "@/components/featured-homes";
 
 const districts = ["زعفرانیه", "فرشته", "الهیه", "دروس", "ولنجک", "اقدسیه"];
 
@@ -98,35 +96,7 @@ export default function Home() {
           </p>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
-          {featuredHomes.map((home) => (
-            <Link
-              href={`/products/${home.id}`}
-              className="focus-ring soft-shadow block overflow-hidden rounded-[1.5rem] bg-white transition hover:-translate-y-1"
-              key={home.title}
-            >
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={home.image}
-                  alt={home.title}
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-xl font-black">{home.title}</h3>
-                <p className="mt-2 text-sm leading-7 text-stone-600">
-                  {home.rooms} | {home.area} | {home.district}
-                </p>
-                <p className="mt-4 text-lg font-black text-[var(--cypress)]">
-                  {home.price}
-                </p>
-                <span className="mt-4 inline-flex rounded-full bg-[var(--mint)] px-4 py-2 text-sm font-black text-[var(--cypress)]">
-                  مشاهده جزئیات
-                </span>
-              </div>
-            </Link>
-          ))}
+          <FeaturedHomes />
         </div>
       </section>
 
