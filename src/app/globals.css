@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f8f4;
+  --foreground: #1e2924;
+  --cypress: #0f6a5b;
+  --mint: #dcebe6;
+  --clay: #d7a77c;
+  --copper: #aa6536;
+  --paper: #fffefa;
+  --mist: #eef3ef;
+  --line: rgba(15, 106, 91, 0.16);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Vazirmatn", "Vazirmatn Fallback", Tahoma, Arial, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-vazirmatn), Tahoma, Arial, sans-serif;
+}
+
+::selection {
+  background: var(--cypress);
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.site-plan {
+  background-image:
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    linear-gradient(var(--line) 1px, transparent 1px),
+    radial-gradient(circle at 82% 12%, rgba(215, 167, 124, 0.3), transparent 28rem);
+  background-size: 92px 92px, 92px 92px, auto;
+}
+
+.plan-frame {
+  position: relative;
+}
+
+.plan-frame::before,
+.plan-frame::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(15, 106, 91, 0.26);
+  z-index: 1;
+}
+
+.plan-frame::before {
+  inset: 1rem;
+  border-top: 1px solid rgba(15, 106, 91, 0.26);
+  border-right: 1px solid rgba(15, 106, 91, 0.26);
+}
+
+.plan-frame::after {
+  inset: auto 1.75rem 1.75rem auto;
+  width: 38%;
+  height: 34%;
+  border-bottom: 1px solid rgba(15, 106, 91, 0.26);
+  border-left: 1px solid rgba(15, 106, 91, 0.26);
+}
+
+.soft-shadow {
+  box-shadow: 0 24px 70px rgba(31, 41, 36, 0.11);
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid rgba(15, 106, 91, 0.28);
+  outline-offset: 4px;
+}
