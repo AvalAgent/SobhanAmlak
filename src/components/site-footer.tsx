@@ -3,7 +3,7 @@ import Link from "next/link";
 export function SiteFooter() {
   return (
     <footer className="border-t border-[var(--line)] bg-[#21372f] text-white">
-      <div className="mx-auto grid w-full max-w-[1480px] gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-12">
+      <div className="mx-auto grid w-full max-w-[1480px] gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1.2fr_0.7fr_0.7fr_0.7fr] lg:px-12">
         <div>
           <Link
             href="/"
@@ -43,6 +43,28 @@ export function SiteFooter() {
             </a>
             <span>تهران، نیاوران، خیابان کامرانیه</span>
           </div>
+        </div>
+        <div>
+          <p className="font-black text-[#f5d7aa]">تلگرام ما</p>
+          <a
+            href="https://t.me/avalAmlakBot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus-ring mt-4 inline-block rounded-2xl bg-white p-2"
+            aria-label="گفتگو در تلگرام"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/telegram-qr.svg"
+              alt="کد QR تلگرام خانه نما"
+              width={112}
+              height={112}
+              className="h-28 w-28"
+            />
+          </a>
+          <p className="mt-3 text-sm text-white/78">
+            اسکن کنید و در تلگرام با ما گفتگو کنید
+          </p>
         </div>
       </div>
       <div className="border-t border-white/12">

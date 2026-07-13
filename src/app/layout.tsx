@@ -25,7 +25,14 @@ export default function RootLayout({
       dir="rtl"
       className={`${vazirmatn.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <script
+          src="https://staging.avalagent.com/widget.js"
+          data-business-id="5fd2b57c-4d37-44f9-b307-8677a3646439"
+          defer
+        ></script>
+      </body>
     </html>
   );
 }
