@@ -20,6 +20,7 @@ export type Product = {
   image: string;
   summary: string;
   features: string[];
+  landUse?: string;
 };
 
 export const products: Product[] = productsData as Product[];
