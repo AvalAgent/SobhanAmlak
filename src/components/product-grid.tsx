@@ -204,7 +204,7 @@ export function ProductGrid({
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <p className="text-sm font-bold text-stone-500">
-                        {product.type} در {product.district}{product.city && product.city !== "تهران" ? `، ${product.city}` : ""}
+                        {product.type} در {product.district || product.city}{product.district && product.city && product.city !== "تهران" ? `، ${product.city}` : ""}
                       </p>
                       <h2 className="mt-2 text-2xl font-black">{product.title}</h2>
                     </div>

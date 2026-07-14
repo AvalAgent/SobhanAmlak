@@ -4,6 +4,7 @@ export type Product = {
   id: string;
   title: string;
   type: string;
+  province: string;
   city: string;
   district: string;
   price: string;
@@ -39,6 +40,7 @@ export type ProductListResponse = {
 export type ProductFilters = {
   q?: string;
   type?: string;
+  province?: string;
   city?: string;
   district?: string;
   minPrice?: number;
@@ -69,6 +71,7 @@ export function listProducts(filters: ProductFilters = {}): ProductListResponse 
   const {
     q,
     type,
+    province,
     city,
     district,
     minPrice,
@@ -85,13 +88,14 @@ export function listProducts(filters: ProductFilters = {}): ProductListResponse 
   if (q && q.trim()) {
     const needle = q.trim().toLowerCase();
     rows = rows.filter((p) =>
-      [p.title, p.district, p.city, p.type, p.summary, ...p.features]
+      [p.title, p.district, p.city, p.province, p.type, p.summary, ...p.features]
         .join(" ")
         .toLowerCase()
         .includes(needle),
     );
   }
   if (type) rows = rows.filter((p) => p.type === type);
+  if (province) rows = rows.filter((p) => p.province === province);
   if (city) rows = rows.filter((p) => p.city === city);
   if (district) rows = rows.filter((p) => p.district === district);
   if (typeof minPrice === "number") rows = rows.filter((p) => p.priceValue >= minPrice);
@@ -132,8 +136,11 @@ export function getProductById(id: string): Product | undefined {
 
 export function listProductFacets() {
   const types = Array.from(new Set(products.map((p) => p.type))).sort();
+  const provinces = Array.from(new Set(products.map((p) => p.province))).sort();
   const cities = Array.from(new Set(products.map((p) => p.city))).sort();
-  const districts = Array.from(new Set(products.map((p) => p.district))).sort();
+  const districts = Array.from(
+    new Set(products.map((p) => p.district).filter(Boolean)),
+  ).sort();
   const priceRange = {
     min: Math.min(...products.map((p) => p.priceValue)),
     max: Math.max(...products.map((p) => p.priceValue)),
@@ -145,6 +152,7 @@ export function listProductFacets() {
   return {
     total: products.length,
     types,
+    provinces,
     cities,
     districts,
     priceRange,

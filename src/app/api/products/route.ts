@@ -37,8 +37,9 @@ function toCatalogItem(p: Product, origin: string) {
     images: [p.image],
     url: `${origin}/products/${p.id}`,
     attributes: {
+      استان: p.province,
       شهر: p.city,
-      منطقه: p.district,
+      ...(p.district ? { منطقه: p.district } : {}),
       متراژ: p.area,
       اتاق: p.rooms,
       "سال ساخت": p.year,
@@ -68,6 +69,7 @@ export async function GET(req: NextRequest) {
   const filters: ProductFilters = {
     q: sp.get("q") ?? undefined,
     type: sp.get("type") ?? undefined,
+    province: sp.get("province") ?? undefined,
     city: sp.get("city") ?? undefined,
     district: sp.get("district") ?? undefined,
     minPrice: num(sp.get("minPrice")),

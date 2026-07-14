@@ -102,7 +102,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
               ← بازگشت به فایل های ملکی
             </Link>
             <p className="mt-7 text-sm font-bold text-stone-500">
-              {product.type} در {product.district}{product.city && product.city !== "تهران" ? `، ${product.city}` : ""}
+              {product.type} در {product.district || product.city}{product.district && product.city && product.city !== "تهران" ? `، ${product.city}` : ""}
             </p>
             <h1 className="mt-3 text-4xl font-black leading-tight text-[#18241f] sm:text-6xl">
               {product.title}

@@ -6,6 +6,7 @@ export type Product = {
   id: string;
   title: string;
   type: string;
+  province?: string;
   city?: string;
   district: string;
   price: string;
@@ -35,6 +36,7 @@ export type ProductListResponse = {
 export type ProductFacets = {
   total: number;
   types: string[];
+  provinces: string[];
   cities: string[];
   districts: string[];
   priceRange: { min: number; max: number };
@@ -44,6 +46,7 @@ export type ProductFacets = {
 export type ListFilters = {
   q?: string;
   type?: string;
+  province?: string;
   city?: string;
   district?: string;
   minPrice?: number;

@@ -74,7 +74,7 @@ export function FeaturedHomes() {
           <div className="p-5">
             <h3 className="text-xl font-black">{home.title}</h3>
             <p className="mt-2 text-sm leading-7 text-stone-600">
-              {home.rooms} | {home.area} | {home.district}
+              {home.rooms} | {home.area} | {home.district || home.city}
             </p>
             <p className="mt-4 text-lg font-black text-[var(--cypress)]">
               {home.price}
