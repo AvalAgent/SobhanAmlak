@@ -27,9 +27,15 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
+        {/*
+          Was pointed at staging.avalagent.com, which has been paused since
+          2026-08-15 (see avalagent/docs/CONTEXT.md) — the script 502'd and the
+          widget silently never rendered. Points at prod now, with a fresh
+          demo business (`iHome (دمو)`) created for this site specifically.
+        */}
         <script
-          src="https://staging.avalagent.com/widget.js"
-          data-business-id="5fd2b57c-4d37-44f9-b307-8677a3646439"
+          src="https://avalagent.com/widget.js"
+          data-business-id="01789320-149f-4428-bbd2-ef8525e71fe6"
           defer
         ></script>
       </body>
