@@ -29,3 +29,7 @@ npm run build
 - `src/app/globals.css`: تم لایت، توکن های رنگ و الگوی بصری پلان معماری
 - `src/data/products.json`: دیتای محصولات/ملک های سایت
 - `next.config.ts`: تنظیم root توربوپک و دامنه تصاویر
+
+## دیپلوی
+
+این ریپو به پروژهٔ Vercel `sobhan-amlak` وصل است؛ هر کامیت روی `main` خودکار روی https://ihome.demo.avalagent.com دیپلوی می‌شود.
