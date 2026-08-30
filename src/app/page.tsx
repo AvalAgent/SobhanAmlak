@@ -83,21 +83,17 @@ export default function Home() {
         id="properties"
         className="mx-auto w-full max-w-[1480px] px-5 py-16 sm:px-8 lg:px-12"
       >
-        <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="font-bold text-[var(--copper)]">فایل های منتخب</p>
-            <h2 className="mt-2 text-3xl font-black sm:text-4xl">
-              ملک هایی که قبل از انتشار عمومی بررسی شده اند
-            </h2>
-          </div>
-          <p className="max-w-2xl leading-8 text-stone-600">
+        <div className="mb-8 max-w-3xl">
+          <p className="font-bold text-[var(--copper)]">فایل های منتخب</p>
+          <h2 className="mt-2 text-3xl font-black sm:text-4xl">
+            ملک هایی که قبل از انتشار عمومی بررسی شده اند
+          </h2>
+          <p className="mt-3 leading-8 text-stone-600">
             هر فایل با تصویر، قیمت منطقه، وضعیت سند و امکان مذاکره واقعی وارد
             لیست می شود.
           </p>
         </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          <FeaturedHomes />
-        </div>
+        <FeaturedHomes />
       </section>
 
       <section id="valuation" className="bg-white/62 py-16">

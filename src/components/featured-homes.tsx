@@ -42,7 +42,7 @@ export function FeaturedHomes() {
 
   if (!homes) {
     return (
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: 3 }).map((_, i) => <CardSkeleton key={i} />)}
       </div>
     );
@@ -55,11 +55,11 @@ export function FeaturedHomes() {
   }
 
   return (
-    <div className="grid gap-5 md:grid-cols-3">
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {homes.map((home) => (
         <Link
           href={`/products/${home.id}`}
-          className="focus-ring soft-shadow block overflow-hidden rounded-[1.5rem] bg-white transition hover:-translate-y-1"
+          className="focus-ring soft-shadow flex min-w-0 flex-col overflow-hidden rounded-[1.5rem] bg-white transition hover:-translate-y-1"
           key={home.id}
         >
           <div className="relative aspect-[4/3]">
@@ -67,19 +67,21 @@ export function FeaturedHomes() {
               src={home.image}
               alt={home.title}
               fill
-              sizes="(min-width: 768px) 33vw, 100vw"
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="object-cover"
             />
           </div>
-          <div className="p-5">
+          <div className="flex flex-1 flex-col p-5">
             <h3 className="text-xl font-black">{home.title}</h3>
             <p className="mt-2 text-sm leading-7 text-stone-600">
-              {home.rooms} | {home.area} | {home.district || home.city}
+              {[home.rooms, home.area, home.district || home.city]
+                .filter(Boolean)
+                .join(" | ")}
             </p>
-            <p className="mt-4 text-lg font-black text-[var(--cypress)]">
+            <p className="mb-4 mt-4 text-lg font-black text-[var(--cypress)]">
               {home.price}
             </p>
-            <span className="mt-4 inline-flex rounded-full bg-[var(--mint)] px-4 py-2 text-sm font-black text-[var(--cypress)]">
+            <span className="mt-auto inline-flex w-fit rounded-full bg-[var(--mint)] px-4 py-3 text-sm font-black text-[var(--cypress)]">
               مشاهده جزئیات
             </span>
           </div>
